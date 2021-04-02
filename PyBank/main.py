@@ -14,7 +14,7 @@ a = 0
 monthly_changes = []
 months_monthly_changes = []
 
-# path to collec data from Resources folder
+# path to collect data from Resources folder
 csvpath = os.path.join("Resources", "budget_data.csv")
 
 # module for reading CSV files

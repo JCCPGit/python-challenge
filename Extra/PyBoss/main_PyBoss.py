@@ -1,10 +1,12 @@
 ## PyBoss
 
+# import required modules
 import os
 import csv
 from datetime import datetime
 import ast
 
+# create required lists
 employee_id = []
 first_name = []
 last_name = []
@@ -12,6 +14,7 @@ date_new = []
 ssn_new = []
 states_new = []
 
+# dictionary for state abbreviations
 us_state_abbrev = {
     'Alabama': 'AL',
     'Alaska': 'AK',
@@ -65,33 +68,43 @@ us_state_abbrev = {
     'Wyoming': 'WY',
 }
 
+# path to collect data from Resources folder
 csv_file = os.path.join("Resources", "employee_data.csv")
 
+# module for reading CSV file
 with open(csv_file, "r") as datafile:
     csv_reader = csv.reader(datafile, delimiter=',')
     csv_header = next(csv_reader)
 
     for row in csv_reader:
+        
+# get employees' id
         id = row[0]
         employee_id.append(id)
         
+# get and transform name
         name = row[1].split(" ")
         first_name.append(name[0])
         last_name.append(name[1])
             
+# get and transform date
         date = row[2]
         date_format = datetime.strptime(date, "%Y-%m-%d").strftime("%m/%d/%Y")
         date_new.append(date_format)
 
+# get and transform ssn
         ssn = row[3].split("-")
         ssn_format = "***-**-" + ssn[2]
         ssn_new.append(ssn_format)
 
+# get and transform states' name
         for k, v in us_state_abbrev.items():
             if row[4] == k:
                 states_new.append(v)
 
 cleaned_csv = zip(employee_id, first_name, last_name, date_new, ssn_new, states_new)
+
+# print of new database
 
 output_file = os.path.join("Analysis", "employee_data_final.csv")
 

@@ -13,7 +13,7 @@ total = 0
 candidates = []
 votes = []
 
-# path to collec data from Resources folder
+# path to collect data from Resources folder
 csv_path = os.path.join("Resources", "election_data.csv")
 
 # module for reading CSV files
@@ -23,25 +23,25 @@ with open(csv_path, 'r') as datafile:
 
     for row in csv_reader:
         
-# Calculation of the total number of votes cast
+# calculation of the total number of votes cast
         number_votes += 1
         
-# List of the candidates who received votes
+# list of the candidates who received votes
         if row[2] not in candidates:
             candidates.append(row[2])
         
-# Calculation of the total number of votes each candidate won       
+# calculation of the total number of votes each candidate won       
         votes.append(row[2])
 
 votes_by_candidate = Counter(votes)
 
-# Calculation of the percentage of votes each candidate won
+# calculation of the percentage of votes each candidate won
 values = votes_by_candidate.values()
 values_list = list(values)
 total = sum(values)
 percentage_by_candidate = [round(value * 100 / total, 2) for value in values]
 
-# Winner of the election
+# winner of the election
 max_percentage = max(percentage_by_candidate)
 index = percentage_by_candidate.index(max_percentage)
 
