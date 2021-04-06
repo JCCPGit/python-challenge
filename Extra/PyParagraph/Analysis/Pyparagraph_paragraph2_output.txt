@@ -21,6 +21,6 @@ Stalmaster, 88, credited with securing career-defining roles for actors such as 
 ----------------
 Approximate Word Count: 285
 Approximate Sentence Count: 2
-Average Letter Count: 6.0
-Average Sentence Length: 142.0
+Average Letter Count: 5.3
+Average Sentence Length: 142.5
 ----------------
